@@ -15,19 +15,26 @@ public class Game2048 {
 
             // Tạo panel chứa điểm số
             JPanel scorePanel = new JPanel();
-            scorePanel.setLayout(new GridLayout(1, 2)); // 1 hàng, 2 cột
+            scorePanel.setLayout(new GridLayout(1, 2, 10, 0)); // 1 hàng, 2 cột, khoảng cách ngang 10px
             scorePanel.setBackground(new Color(0xfaf8f1)); // Màu nền phù hợp
-            scorePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Thêm padding
+            scorePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Thêm padding xung quanh panel
 
-            // Tạo và thêm các JLabel cho "Score" và "Best"
-            JLabel scoreLabel = new JLabel("Score: 0", SwingConstants.CENTER);
-            JLabel bestLabel = new JLabel("Best: 0", SwingConstants.CENTER);
+            // Tạo và thêm các RoundedLabel cho "Score" và "Best"
+            JLabel scoreLabel = new RoundedLabel("Score: 0", new Color(0xeae9d9)); // Màu nền "0xeae9d9"
+            JLabel bestLabel = new RoundedLabel("Best: 0", null); // Nền trong suốt
 
             scoreLabel.setFont(new Font("Arial", Font.BOLD, 20));
             bestLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
-            scoreLabel.setForeground(new Color(0x9f8975));
-            bestLabel.setForeground(new Color(0x9f8975));
+            // Thêm padding xung quanh mỗi label
+            scoreLabel.setBorder(BorderFactory.createCompoundBorder(
+                scoreLabel.getBorder(),
+                BorderFactory.createEmptyBorder(10, 10, 10, 10) // Padding: top, left, bottom, right
+            ));
+            bestLabel.setBorder(BorderFactory.createCompoundBorder(
+                bestLabel.getBorder(),
+                BorderFactory.createEmptyBorder(10, 10, 10, 10) // Padding: top, left, bottom, right
+            ));
 
             scorePanel.add(scoreLabel);
             scorePanel.add(bestLabel);

@@ -15,6 +15,16 @@ public class Board {
         initializeTiles();
     }
 
+    public void printBoard() {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                System.out.print(tiles[i][j].getValue() + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     // Khởi tạo các ô trên bảng
     protected void initializeTiles() {
         for (int i = 0; i < SIZE; i++) {
@@ -69,6 +79,7 @@ public class Board {
         if (moved) {
             addRandomTile();
             updateBoard();
+            printBoard();
         }
         return moved;
     }

@@ -69,7 +69,7 @@ public class GamePanel extends JPanel {
     }
 
     // Khởi động lại trò chơi
-    public void restartGame() {
+    void restartGame() {
         score = 0;
         scoreLabel.setText("Score: 0");
         best = DatabaseManager.getBestScore();
@@ -79,12 +79,12 @@ public class GamePanel extends JPanel {
         removeAll();
 
         // Khởi tạo lại Board
-        board.initializeTiles(); // Khởi tạo lại các ô trên bảng
+        board.initializeTiles();
 
         // Thêm các ô mới vào giao diện
         initializeBoard();
 
-        // Cập nhật giao diện
+        // Cập nhật lại giao diện
         revalidate();
         repaint();
 

@@ -14,7 +14,6 @@ public class StyledButton extends JButton {
         setFocusPainted(false); // Loại bỏ viền focus
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // Con trỏ tay khi hover
         setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Padding cho nút
-
         // Thêm hiệu ứng hover
         addMouseListener(new MouseAdapter() {
             @Override
