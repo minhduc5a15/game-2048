@@ -14,7 +14,7 @@ public class InputHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // Kiểm tra xem trò chơi đã kết thúc chưa
+
         if (!board.canMove()) {
             gamePanel.saveScore(); // Lưu điểm số vào cơ sở dữ liệu
             gamePanel.showGameOverDialog(); // Hiển thị hộp thoại khi thua game

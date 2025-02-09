@@ -19,7 +19,7 @@ public class GamePanel extends JPanel {
         bestLabel.setText("Best: " + best);
 
         setLayout(new GridLayout(4, 4, 10, 10));
-        setBackground(new Color(0xbbada0));
+        setBackground(new Color(0x9e8c7b));
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Thêm padding
 
         board = new Board(this);
@@ -65,26 +65,28 @@ public class GamePanel extends JPanel {
 
     // Hiển thị hộp thoại khi thua game
     public void showGameOverDialog() {
-        Object[] options = {"Restart", "Exit"};
-        int choice = JOptionPane.showOptionDialog(this, "Game Over! Final Score: " + score,
-                "Game Over", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-
-        if (choice == JOptionPane.YES_OPTION) {
-            restartGame();
-        } else {
-            System.exit(0);
-        }
+        new GameOverDialog(this).show();
     }
 
     // Khởi động lại trò chơi
-    private void restartGame() {
+    public void restartGame() {
         score = 0;
         scoreLabel.setText("Score: 0");
         best = DatabaseManager.getBestScore();
         bestLabel.setText("Best: " + best);
 
+        // Xóa tất cả các ô cũ khỏi bảng
+        removeAll();
+
         // Khởi tạo lại Board
+        board.initializeTiles(); // Khởi tạo lại các ô trên bảng
+
+        // Thêm các ô mới vào giao diện
         initializeBoard();
+
+        // Cập nhật giao diện
+        revalidate();
+        repaint();
 
         // Yêu cầu focus để nhận sự kiện bàn phím
         requestFocusInWindow();

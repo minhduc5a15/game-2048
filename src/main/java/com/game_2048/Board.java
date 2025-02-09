@@ -16,7 +16,7 @@ public class Board {
     }
 
     // Khởi tạo các ô trên bảng
-    private void initializeTiles() {
+    protected void initializeTiles() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 tiles[i][j] = new Tile();

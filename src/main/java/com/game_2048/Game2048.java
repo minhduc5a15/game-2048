@@ -16,7 +16,7 @@ public class Game2048 {
             // Tạo panel chứa điểm số
             JPanel scorePanel = new JPanel();
             scorePanel.setLayout(new GridLayout(1, 2)); // 1 hàng, 2 cột
-            scorePanel.setBackground(new Color(0xbbada0)); // Màu nền phù hợp
+            scorePanel.setBackground(new Color(0xfaf8f1)); // Màu nền phù hợp
             scorePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Thêm padding
 
             // Tạo và thêm các JLabel cho "Score" và "Best"
@@ -26,8 +26,8 @@ public class Game2048 {
             scoreLabel.setFont(new Font("Arial", Font.BOLD, 20));
             bestLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
-            scoreLabel.setForeground(Color.WHITE);
-            bestLabel.setForeground(Color.WHITE);
+            scoreLabel.setForeground(new Color(0x9f8975));
+            bestLabel.setForeground(new Color(0x9f8975));
 
             scorePanel.add(scoreLabel);
             scorePanel.add(bestLabel);
