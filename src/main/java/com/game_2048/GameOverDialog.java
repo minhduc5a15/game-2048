@@ -13,7 +13,7 @@ public class GameOverDialog {
     public void show() {
         // Tạo một JPanel tùy chỉnh để chứa nội dung của hộp thoại
         JPanel panel = new JPanel(new BorderLayout(10, 10));
-        panel.setBackground(new Color(0xfaf8ef)); // Màu nền phù hợp với theme của game
+        panel.setBackground(new Color(0xfaf8ef));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Thêm padding xung quanh panel
 
         // Tạo JLabel để hiển thị thông báo "Game Over"
@@ -31,8 +31,8 @@ public class GameOverDialog {
         panel.add(scoreLabel, BorderLayout.CENTER);
 
         // Tạo các nút tùy chỉnh
-        StyledButton restartButton = new StyledButton("Restart");
-        StyledButton exitButton = new StyledButton("Exit");
+        StyledButton restartButton = new StyledButton("Restart", true);
+        StyledButton exitButton = new StyledButton("Exit", true);
 
         // Tạo một JPanel để chứa các nút
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 10, 10));

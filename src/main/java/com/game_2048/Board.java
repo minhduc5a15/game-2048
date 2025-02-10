@@ -15,33 +15,20 @@ public class Board {
         initializeTiles();
     }
 
-    public void printBoard() {
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                System.out.print(tiles[i][j].getValue() + " ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
 
-    // Khởi tạo các ô trên bảng
     protected void initializeTiles() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 tiles[i][j] = new Tile();
             }
         }
-        addRandomTile(); // Thêm 2 ô ngẫu nhiên ban đầu
         addRandomTile();
     }
 
-    // Trả về ô tại vị trí (i, j)
     public Tile getTile(int i, int j) {
         return tiles[i][j];
     }
 
-    // Thêm một ô ngẫu nhiên có giá trị 2 hoặc 4
     public void addRandomTile() {
         if (!hasEmptyTile()) {
             return; // Không còn ô trống để thêm
@@ -56,7 +43,6 @@ public class Board {
         tiles[x][y].setValue(value);
     }
 
-    // Kiểm tra xem còn ô trống không
     private boolean hasEmptyTile() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -68,7 +54,6 @@ public class Board {
         return false;
     }
 
-    // Di chuyển các ô theo hướng chỉ định
     public boolean moveTiles(Direction direction) {
         boolean moved = switch (direction) {
             case UP -> moveUp();
@@ -79,12 +64,10 @@ public class Board {
         if (moved) {
             addRandomTile();
             updateBoard();
-            printBoard();
         }
         return moved;
     }
 
-    // Di chuyển các ô lên trên
     private boolean moveUp() {
         boolean moved = false;
         for (int j = 0; j < SIZE; j++) {
@@ -111,7 +94,6 @@ public class Board {
         return moved;
     }
 
-    // Di chuyển các ô xuống dưới
     private boolean moveDown() {
         boolean moved = false;
         for (int j = 0; j < SIZE; j++) {
@@ -138,7 +120,6 @@ public class Board {
         return moved;
     }
 
-    // Di chuyển các ô sang trái
     private boolean moveLeft() {
         boolean moved = false;
         for (int i = 0; i < SIZE; i++) {
@@ -165,7 +146,6 @@ public class Board {
         return moved;
     }
 
-    // Di chuyển các ô sang phải
     private boolean moveRight() {
         boolean moved = false;
         for (int i = 0; i < SIZE; i++) {
@@ -192,7 +172,6 @@ public class Board {
         return moved;
     }
 
-    // Kiểm tra xem có thể di chuyển được không
     public boolean canMove() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -210,7 +189,6 @@ public class Board {
         return false; // Không thể di chuyển
     }
 
-    // Cập nhật giao diện của tất cả các ô
     public void updateBoard() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {

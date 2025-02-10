@@ -5,21 +5,16 @@ import java.awt.*;
 
 public class RoundedLabel extends JLabel {
     private int cornerRadius = 15; // Bán kính bo tròn
-    private Color backgroundColor; // Màu nền của label
+    private final Color backgroundColor; // Màu nền của label
 
     public RoundedLabel(String text, Color backgroundColor) {
         super(text);
-        setBackgroundColor(backgroundColor);
-        setOpaque(false);
+        this.backgroundColor = backgroundColor;
+        setOpaque(false); // Đặt nền trong suốt
         setHorizontalAlignment(SwingConstants.CENTER);
         setFont(new Font("Arial", Font.BOLD, 20));
-        setForeground(new Color(0x9f8975));
+        setForeground(new Color(0x9f8975)); // Màu chữ
         setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Thêm padding
-    }
-
-    public void setBackgroundColor(Color backgroundColor) {
-        this.backgroundColor = backgroundColor;
-        repaint();
     }
 
     @Override
