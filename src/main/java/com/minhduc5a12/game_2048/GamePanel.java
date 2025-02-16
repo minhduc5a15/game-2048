@@ -1,4 +1,4 @@
-package com.game_2048;
+package com.minhduc5a12.game_2048;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +33,6 @@ public class GamePanel extends JPanel {
                 add(board.getTile(i, j));
             }
         }
-        board.addRandomTile();
         board.addRandomTile();
     }
 

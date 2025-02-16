@@ -1,4 +1,4 @@
-package com.game_2048;
+package com.minhduc5a12.game_2048;
 
 import java.util.Random;
 
@@ -62,7 +62,6 @@ public class Board {
             case RIGHT -> moveRight();
         };
         if (moved) {
-            addRandomTile();
             updateBoard();
         }
         return moved;
